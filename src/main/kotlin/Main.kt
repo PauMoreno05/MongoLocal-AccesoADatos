@@ -44,22 +44,30 @@ fun insertarPelicula() {
     }
 
     print("Titulo de la pelicula: ")
-    val nombre_comun = scanner.nextLine()
-    print("Nombre científico: ")
-    val nombre_cientifico = scanner.nextLine()
-
-    var altura: Int? = null
-    while (altura == null) {
-        print("Altura (en cm): ")
+    val titulo_peli = scanner.nextLine()
+    print("Director de la pelicula: ")
+    val director_peli = scanner.nextLine()
+    var duracion: Double? = null
+    while (duracion == null) {
+        print("Duracion (en h): ")
         val entrada = scanner.nextLine()
-        altura = entrada.toIntOrNull()
-        if (altura == null) {
+        duracion = entrada.toDoubleOrNull()
+        if (duracion == null) {
             println("¡¡¡ La altura debe ser un número !!!")
         }
     }
+    while (duracion == null) {
+        print("Recomiedas la Pelicula(SI/NO):  ")
+        val recomenada: Boolean
+        val recomendaRes = scanner.nextLine()
+        if (recomendaRes == "SI"){
+            recomenada = true
+        } else (recomendaRes == "NO"){
+            recomenada = false
+        }
 
-    val doc = Document("id_planta", id_planta)
-        .append("nombre_comun", nombre_comun)
+    val doc = Document("idPeliculaJSON", id_pelicula)
+        .append("idPeliculaJSON", nombre_comun)
         .append("nombre_cientifico", nombre_cientifico)
         .append("altura", altura)
 
