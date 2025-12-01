@@ -15,12 +15,19 @@ fun mostrarPeliclas() {
     val cliente = MongoClients.create(NOM_SRV)
     val db = cliente.getDatabase(NOM_BD)
     val coleccion = db.getCollection(NOM_COLECCION)
-    val cursor = coleccion.find().iterator()
-    cursor.use {
-        while (it.hasNext()) {
-            val doc = it.next()
-            println(doc.toJson())
-        }
+
+    println()
+    println("**** Listado de Películas:")
+
+
+    coleccion.find().forEach { doc ->
+        val id = doc.get("idPeliculaJSON")
+        val titulo = doc.getString("tituloPeliJSON") ?: "Sin título"
+        val director = doc.getString("directorJSON") ?: "Desconocido"
+        val duracion = doc.get("duracionHorasJSON")
+        val recomendada = if (doc.getBoolean("esRecomendadaJSON") == true) "Sí" else "No"
+
+        println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
     }
 
     cliente.close()
