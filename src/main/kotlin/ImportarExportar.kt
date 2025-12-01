@@ -10,12 +10,24 @@ fun exportarDatos() {
     val db = cliente.getDatabase(NOM_BD)
     val coleccion = db.getCollection(NOM_COLECCION)
 
-    // Nombre del archivo por defecto
+    // 1. Construimos la ruta dinámica a src/main/resources
+    val rutaProyecto = System.getProperty("user.dir")
+    val rutaResources = "$rutaProyecto/src/main/resources"
     val nombreArchivo = "peliculas_export.json"
 
+    // Objeto File completo
+    val file = File(rutaResources, nombreArchivo)
+
     try {
+        // Asegurarnos de que la carpeta existe (por si acaso)
+        val carpeta = File(rutaResources)
+        if (!carpeta.exists()) {
+            carpeta.mkdirs()
+        }
+
+        println("Guardando en: ${file.absolutePath}")
+
         val settings = JsonWriterSettings.builder().indent(true).build()
-        val file = File(nombreArchivo)
 
         file.printWriter().use { out ->
             out.println("[")
@@ -31,10 +43,10 @@ fun exportarDatos() {
             out.println("]")
             cursor.close()
         }
-        println("✅ Exportación completada exitosamente en: $nombreArchivo")
+        println("Exportación completada.")
 
     } catch (e: Exception) {
-        println("❌ Error al exportar: ${e.message}")
+        println("Error al exportar: ${e.message}")
     } finally {
         cliente.close()
     }
@@ -42,51 +54,47 @@ fun exportarDatos() {
 
 
 fun importarDatos() {
+    // 1. Construimos la misma ruta dinámica
+    val rutaProyecto = System.getProperty("user.dir")
+    val rutaResources = "$rutaProyecto/src/main/resources"
     val nombreArchivo = "peliculas_export.json"
-    val jsonFile = File(nombreArchivo)
+
+    val jsonFile = File(rutaResources, nombreArchivo)
+
+    println("Buscando archivo en: ${jsonFile.absolutePath}")
 
     if (!jsonFile.exists()) {
-        println("❌ No se encuentra el archivo '$nombreArchivo'. Primero exporta algo.")
+        println("No se encuentra el archivo en resources. Primero usa la opción Exportar.")
         return
     }
 
-    println("Iniciando importación desde $nombreArchivo...")
+    println("Iniciando importación...")
 
-    // 1. Conexión
     val cliente = MongoClients.create(NOM_SRV)
     val db = cliente.getDatabase(NOM_BD)
     val coleccion = db.getCollection(NOM_COLECCION)
 
     try {
-        // 2. Leer el texto del archivo
         val jsonText = jsonFile.readText()
 
-        // 3. Parsear el JSON
-        // TRUCO: Como el archivo es un Array [...] y Document.parse espera un Objeto {...},
-        // envolvemos el texto en una propiedad temporal para que Mongo lo parsee por nosotros.
-        // Así no necesitas la librería 'org.json'.
+        // TRUCO: Envolvemos el array en un objeto para parsearlo nativamente con Mongo Driver
         val jsonWrapper = "{ \"lista\": $jsonText }"
         val docWrapper = Document.parse(jsonWrapper)
         val listaDocumentos = docWrapper.getList("lista", Document::class.java)
 
         if (listaDocumentos.isNullOrEmpty()) {
-            println("⚠️ El archivo JSON está vacío o no tiene formato correcto.")
+            println("⚠️ El archivo JSON está vacío.")
             return
         }
 
-        coleccion.drop()
-        println("   -> Colección anterior borrada.")
+        coleccion.drop() // Borramos lo anterior
+        println("-> Colección limpiada.")
 
-        val docsAInsertar = listaDocumentos.map { doc ->
-            doc
-        }
-
-        // 6. Insertar
-        coleccion.insertMany(docsAInsertar)
-        println("✅ Importación completada: ${docsAInsertar.size} películas insertadas.")
+        coleccion.insertMany(listaDocumentos)
+        println("Importación completada: ${listaDocumentos.size} películas insertadas.")
 
     } catch (e: Exception) {
-        println("❌ Error al importar: ${e.message}")
+        println("Error al importar: ${e.message}")
         e.printStackTrace()
     } finally {
         cliente.close()

@@ -1,0 +1,142 @@
+[
+{
+  "_id": {
+    "$oid": "6914c71b67016b4a429dc29d"
+  },
+  "idPeliculaJSON": 1,
+  "tituloPeliJSON": "El Origen",
+  "directorJSON": "Christopher Nolan",
+  "generosJSON": [
+    "Ciencia Ficción",
+    "Acción",
+    "Suspenso"
+  ],
+  "duracionHorasJSON": 2.48,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 2010
+  }
+},
+{
+  "_id": {
+    "$oid": "6914c71b67016b4a429dc29e"
+  },
+  "idPeliculaJSON": 2,
+  "tituloPeliJSON": "El Padrino",
+  "directorJSON": "Francis Ford Coppola",
+  "generosJSON": [
+    "Crimen",
+    "Drama"
+  ],
+  "duracionHorasJSON": 2.92,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1972
+  }
+},
+{
+  "_id": {
+    "$oid": "6914c71b67016b4a429dc29f"
+  },
+  "idPeliculaJSON": 3,
+  "tituloPeliJSON": "Tiempos Violentos",
+  "directorJSON": "Quentin Tarantino",
+  "generosJSON": [
+    "Crimen",
+    "Suspenso"
+  ],
+  "duracionHorasJSON": 2.54,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  }
+},
+{
+  "_id": {
+    "$oid": "6914c71b67016b4a429dc2a0"
+  },
+  "idPeliculaJSON": 4,
+  "tituloPeliJSON": "Sueños de Fuga",
+  "directorJSON": "Frank Darabont",
+  "generosJSON": [
+    "Drama",
+    "Crimen"
+  ],
+  "duracionHorasJSON": 2.37,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  }
+},
+{
+  "_id": {
+    "$oid": "6914c71b67016b4a429dc2a1"
+  },
+  "idPeliculaJSON": 5,
+  "tituloPeliJSON": "Forrest Gump",
+  "directorJSON": "Robert Zemeckis",
+  "generosJSON": [
+    "Drama",
+    "Romance"
+  ],
+  "duracionHorasJSON": 2.33,
+  "esRecomendadaJSON": false,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  }
+},
+{
+  "_id": {
+    "$oid": "691b412fa4efbf51259dc2a3"
+  },
+  "idPeliculaJSON": 6,
+  "tituloPeliJSON": "Frankenstein",
+  "directorJSON": "Guillermo del Toro",
+  "generosJSON": [
+    "Ciencia Ficción",
+    "Terror",
+    "Drama"
+  ],
+  "duracionHorasJSON": 2.3,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 2025
+  }
+},
+{
+  "_id": {
+    "$oid": "691b412fa4efbf51259dc2a4"
+  },
+  "idPeliculaJSON": 7,
+  "tituloPeliJSON": "Jacobs's Ladder",
+  "directorJSON": "Adrian Lyne",
+  "generosJSON": [
+    "Terror",
+    "Psicologico",
+    "Suspenso"
+  ],
+  "duracionHorasJSON": 2.3,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1990
+  }
+},
+{
+  "_id": {
+    "$oid": "691b412fa4efbf51259dc2a5"
+  },
+  "idPeliculaJSON": 8,
+  "tituloPeliJSON": "Scream",
+  "directorJSON": "Wes Craven,",
+  "generosJSON": [
+    "Terror",
+    "Drama",
+    "Suspenso"
+  ],
+  "duracionHorasJSON": 2.3,
+  "esRecomendadaJSON": true,
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1996
+  }
+}
+]
