@@ -15,7 +15,6 @@ fun mostrarPeliclas() {
     val cliente = MongoClients.create(NOM_SRV)
     val db = cliente.getDatabase(NOM_BD)
     val coleccion = db.getCollection(NOM_COLECCION)
-
     val cursor = coleccion.find().iterator()
     cursor.use {
         while (it.hasNext()) {
