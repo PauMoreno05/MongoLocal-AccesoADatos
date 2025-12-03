@@ -1,10 +1,42 @@
 package org.example
 
+import com.mongodb.client.MongoClient
+import com.mongodb.client.MongoClients
+import com.mongodb.client.MongoCollection
+import de.bwaldvogel.mongo.MongoServer
+import de.bwaldvogel.mongo.backend.memory.MemoryBackend
+import org.bson.Document
 import java.util.InputMismatchException
 
-fun main() {
-    menu()
+lateinit var servidor: MongoServer
+lateinit var cliente: MongoClient
+lateinit var uri: String
+lateinit var coleccionPlantas: MongoCollection<Document>
+
+//BD y colección con la que se trabajará
+const val NOM_BD = "filmoteca"
+const val NOM_COLECCION = "peliculas"
+
+// Función para conectar a la BD
+fun conectarBD() {
+    servidor = MongoServer(MemoryBackend())
+    val address = servidor.bind()
+    uri = "mongodb://${address.hostName}:${address.port}"
+
+    cliente = MongoClients.create(uri)
+    coleccionPlantas = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    println("Servidor MongoDB en memoria iniciado en $uri")
 }
+
+// Función para desconectar a la BD
+fun desconectarBD() {
+    cliente.close()
+    servidor.shutdown()
+    println("Servidor MongoDB en memoria finalizado")
+}
+
+
 
 fun menu() {
     var opcion: Int = -1
@@ -18,9 +50,6 @@ fun menu() {
         println("3. Actualizar duración")
         println("4. Eliminar película")
         println("5. Consultas avanzadas")
-        println("------- ARCHIVOS -------")
-        println("6. Exportar BD a JSON")
-        println("7. Importar BD desde JSON")
         println("------------------------")
         println("0. Salir")
         print("Elige opción: ")
@@ -35,8 +64,6 @@ fun menu() {
                 3 -> actualizarDuracion()
                 4 -> eliminarPelicula()
                 5 -> menuConsultas()
-                6 -> exportarDatos()
-                7 -> importarDatos()
                 0 -> println("Adios!")
                 else -> println("Opción incorrecta")
             }
@@ -84,4 +111,15 @@ fun menuConsultas() {
             println("Error: Introduce un número para la consulta.")
         }
     }
+}
+
+fun main() {
+    conectarBD()
+    importarBD("src/main/resources/peliculas_export.json", coleccionPlantas)
+
+    menu()
+
+    exportarBD(coleccionPlantas,"src/main/resources/peliculas_export.json")
+    desconectarBD()
+
 }

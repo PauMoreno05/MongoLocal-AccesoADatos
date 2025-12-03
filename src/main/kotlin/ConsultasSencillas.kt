@@ -6,15 +6,12 @@ import org.bson.Document
 import java.util.Scanner
 
 const val NOM_SRV = "mongodb://localhost:27017"
-const val NOM_BD = "filmoteca"
-const val NOM_COLECCION = "peliculas"
+
 
 val scanner = Scanner(System.`in`)
 
 fun mostrarPeliclas() {
-    val cliente = MongoClients.create(NOM_SRV)
-    val db = cliente.getDatabase(NOM_BD)
-    val coleccion = db.getCollection(NOM_COLECCION)
+    val coleccion = coleccionPlantas
 
     println()
     println("**** Listado de Películas:")
@@ -30,13 +27,10 @@ fun mostrarPeliclas() {
         println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
     }
 
-    cliente.close()
 }
 fun insertarPelicula() {
     //conectar con la BD
-    val cliente = MongoClients.create(NOM_SRV)
-    val db = cliente.getDatabase(NOM_BD)
-    val coleccion = db.getCollection(NOM_COLECCION)
+    val coleccion = coleccionPlantas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
@@ -81,16 +75,12 @@ fun insertarPelicula() {
     coleccion.insertOne(doc)
     println("Pelicula insertada con ID: ${doc.getObjectId("_id")}")
 
-    cliente.close()
-    println("Conexión cerrada")
 }
 
 
 fun actualizarDuracion() {
     //conectar con la BD
-    val cliente = MongoClients.create(NOM_SRV)
-    val db = cliente.getDatabase(NOM_BD)
-    val coleccion = db.getCollection(NOM_COLECCION)
+    val coleccion = coleccionPlantas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
@@ -134,16 +124,12 @@ fun actualizarDuracion() {
             println("No se modificó ningún documento (la duracion quizá ya era la misma).")
     }
 
-    cliente.close()
-    println("Conexión cerrada.")
 }
 
 
 fun eliminarPelicula() {
     //conectar con la BD
-    val cliente = MongoClients.create(NOM_SRV)
-    val db = cliente.getDatabase(NOM_BD)
-    val coleccion = db.getCollection(NOM_COLECCION)
+    val coleccion = coleccionPlantas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
@@ -162,6 +148,4 @@ fun eliminarPelicula() {
     else
         println("No se encontró ninguna pelicula con ese nombre.")
 
-    cliente.close()
-    println("Conexión cerrada.")
 }

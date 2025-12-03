@@ -6,8 +6,8 @@ import com.mongodb.client.model.Projections
 import org.bson.Document
 
 fun duracionMas2Pelis() {
-    val client = MongoClients.create(NOM_SRV)
-    val col = client.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     println(" Películas que duran MÁS de 2 horas")
 
@@ -21,12 +21,11 @@ fun duracionMas2Pelis() {
         println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
 
     }
-    client.close()
 }
 
 fun duracionMenos2Pelis() {
-    val client = MongoClients.create(NOM_SRV)
-    val col = client.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     println(" Películas que duran MENOS de 2 horas ")
 
@@ -39,12 +38,11 @@ fun duracionMenos2Pelis() {
 
         println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
     }
-    client.close()
 }
 
 fun tresPelisMasLargas() {
-    val client = MongoClients.create(NOM_SRV)
-    val col = client.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     println("Top 3 Películas más largas")
 
@@ -64,12 +62,11 @@ fun tresPelisMasLargas() {
 
     }
 
-    client.close()
 }
 
 fun tituloPelis() {
-    val client = MongoClients.create(NOM_SRV)
-    val col = client.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     println("Listado solo de Títulos")
 
@@ -84,12 +81,11 @@ fun tituloPelis() {
         println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
 
     }
-    client.close()
 }
 
 fun duracionMedia() {
-    val client = MongoClients.create(NOM_SRV)
-    val col = client.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     println("Estadística: Duración Media")
 
@@ -107,5 +103,4 @@ fun duracionMedia() {
         println("No hay datos para calcular la media.")
     }
 
-    client.close()
 }
