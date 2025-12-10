@@ -11,11 +11,13 @@ import java.util.InputMismatchException
 lateinit var servidor: MongoServer
 lateinit var cliente: MongoClient
 lateinit var uri: String
-lateinit var coleccionPlantas: MongoCollection<Document>
+lateinit var coleccionPeliculas: MongoCollection<Document>
+lateinit var coleccionVideoclubs: MongoCollection<Document>
 
 //BD y colección con la que se trabajará
 const val NOM_BD = "filmoteca"
 const val NOM_COLECCION = "peliculas"
+const val NOM_COLECCION2 = "vieoclubs"
 
 // Función para conectar a la BD
 fun conectarBD() {
@@ -24,7 +26,8 @@ fun conectarBD() {
     uri = "mongodb://${address.hostName}:${address.port}"
 
     cliente = MongoClients.create(uri)
-    coleccionPlantas = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+    coleccionPeliculas = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
+    coleccionVideoclubs = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION2)
 
     println("Servidor MongoDB en memoria iniciado en $uri")
 }
@@ -110,11 +113,14 @@ fun menuConsultas() {
 
 fun main() {
     conectarBD()
-    importarBD("src/main/resources/peliculas_export.json", coleccionPlantas)
+    importarBD("src/main/resources/peliculas_export.json", coleccionPeliculas)
+    importarBD("src/main/resources/peliculas_export.json", coleccionVideoclubs)
 
     menu()
 
-    exportarBD(coleccionPlantas,"src/main/resources/peliculas_export.json")
+    exportarBD(coleccionPeliculas,"src/main/resources/peliculas_export.json")
+    exportarBD(coleccionVideoclubs,"src/main/resources/peliculas_export.json")
+
     desconectarBD()
 
 }

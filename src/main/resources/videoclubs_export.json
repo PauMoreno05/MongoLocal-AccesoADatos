@@ -1,0 +1,12 @@
+[
+  {
+    "ID": 1,
+    "VideoClub": "VideoMania",
+    "NumeroEmpleados": 6
+  },
+  {
+    "ID": 2,
+    "VideoClub": "CinePlus",
+    "NumeroEmpleados": 7
+  }
+]
