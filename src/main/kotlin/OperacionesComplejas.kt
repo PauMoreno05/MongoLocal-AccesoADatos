@@ -65,21 +65,11 @@ fun tresPelisMasLargas() {
 }
 
 fun tituloPelis() {
-
     val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
-
     println("Listado solo de Títulos")
-
     col.find().projection(Projections.include("tituloPeliJSON")).forEach { doc ->
-
-        val id = doc.get("idPeliculaJSON")
         val titulo = doc.getString("tituloPeliJSON") ?: "Sin título"
-        val director = doc.getString("directorJSON") ?: "Desconocido"
-        val duracion = doc.get("duracionHorasJSON")
-        val recomendada = if (doc.getBoolean("esRecomendadaJSON") == true) "Sí" else "No"
-
-        println("[$id] $titulo ($director): $duracion h - Recomendada: $recomendada")
-
+        println("- $titulo")
     }
 }
 
@@ -98,7 +88,7 @@ fun duracionMedia() {
     if (resultado != null) {
         val media = resultado.getDouble("mediaCalculada")
 
-        println("La Duración Media es: %.2f horas ****".format(media))
+        println("La Duración Media es: %.2f horas".format(media))
     } else {
         println("No hay datos para calcular la media.")
     }

@@ -1,142 +1,151 @@
 [
 {
   "_id": {
-    "$oid": "6914c71b67016b4a429dc29d"
+    "$oid": "6939a0ca449d2600cd162481"
   },
-  "idPeliculaJSON": 1,
   "tituloPeliJSON": "El Origen",
   "directorJSON": "Christopher Nolan",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 2010
+  },
+  "idPeliculaJSON": 1,
+  "duracionHorasJSON": 2.48,
   "generosJSON": [
     "Ciencia Ficción",
     "Acción",
     "Suspenso"
   ],
-  "duracionHorasJSON": 2.48,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 2010
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "6914c71b67016b4a429dc29e"
+    "$oid": "6939a0ca449d2600cd162482"
   },
-  "idPeliculaJSON": 2,
   "tituloPeliJSON": "El Padrino",
   "directorJSON": "Francis Ford Coppola",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1972
+  },
+  "idPeliculaJSON": 2,
+  "duracionHorasJSON": 2.92,
   "generosJSON": [
     "Crimen",
     "Drama"
   ],
-  "duracionHorasJSON": 2.92,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1972
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "6914c71b67016b4a429dc29f"
+    "$oid": "6939a0ca449d2600cd162483"
   },
-  "idPeliculaJSON": 3,
   "tituloPeliJSON": "Tiempos Violentos",
   "directorJSON": "Quentin Tarantino",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  },
+  "idPeliculaJSON": 3,
+  "duracionHorasJSON": 2.54,
   "generosJSON": [
     "Crimen",
     "Suspenso"
   ],
-  "duracionHorasJSON": 2.54,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1994
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "6914c71b67016b4a429dc2a0"
+    "$oid": "6939a0ca449d2600cd162484"
   },
-  "idPeliculaJSON": 4,
   "tituloPeliJSON": "Sueños de Fuga",
   "directorJSON": "Frank Darabont",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  },
+  "idPeliculaJSON": 4,
+  "duracionHorasJSON": 2.37,
   "generosJSON": [
     "Drama",
     "Crimen"
   ],
-  "duracionHorasJSON": 2.37,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1994
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "6914c71b67016b4a429dc2a1"
+    "$oid": "6939a0ca449d2600cd162485"
   },
-  "idPeliculaJSON": 5,
   "tituloPeliJSON": "Forrest Gump",
   "directorJSON": "Robert Zemeckis",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1994
+  },
+  "idPeliculaJSON": 5,
+  "duracionHorasJSON": 2.33,
   "generosJSON": [
     "Drama",
     "Romance"
   ],
-  "duracionHorasJSON": 2.33,
-  "esRecomendadaJSON": false,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1994
-  }
+  "esRecomendadaJSON": false
 },
 {
   "_id": {
-    "$oid": "691b412fa4efbf51259dc2a3"
+    "$oid": "6939a0ca449d2600cd162486"
   },
-  "idPeliculaJSON": 6,
   "tituloPeliJSON": "Frankenstein",
   "directorJSON": "Guillermo del Toro",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 2025
+  },
+  "idPeliculaJSON": 6,
+  "duracionHorasJSON": 2.3,
   "generosJSON": [
     "Ciencia Ficción",
     "Terror",
     "Drama"
   ],
-  "duracionHorasJSON": 2.3,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 2025
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "691b412fa4efbf51259dc2a4"
+    "$oid": "6939a0ca449d2600cd162487"
   },
-  "idPeliculaJSON": 7,
   "tituloPeliJSON": "Jacobs's Ladder",
   "directorJSON": "Adrian Lyne",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1990
+  },
+  "idPeliculaJSON": 7,
+  "duracionHorasJSON": 2.3,
   "generosJSON": [
     "Terror",
     "Psicologico",
     "Suspenso"
   ],
-  "duracionHorasJSON": 2.3,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1990
-  }
+  "esRecomendadaJSON": true
 },
 {
   "_id": {
-    "$oid": "691b412fa4efbf51259dc2a5"
+    "$oid": "6939a0ca449d2600cd162488"
   },
-  "idPeliculaJSON": 8,
   "tituloPeliJSON": "Scream",
   "directorJSON": "Wes Craven,",
+  "detallesAdicionalesJSON": {
+    "añoEstreno": 1996
+  },
+  "idPeliculaJSON": 8,
+  "duracionHorasJSON": 2.3,
   "generosJSON": [
     "Terror",
     "Drama",
     "Suspenso"
   ],
-  "duracionHorasJSON": 2.3,
-  "esRecomendadaJSON": true,
-  "detallesAdicionalesJSON": {
-    "añoEstreno": 1996
-  }
-}
-]
+  "esRecomendadaJSON": true
+},
+{
+  "_id": {
+    "$oid": "6939a0ca449d2600cd162489"
+  },
+  "tituloPeliJSON": "1917",
+  "directorJSON": "Sam Mendes",
+  "idPeliculaJSON": 9,
+  "duracionHorasJSON": 1.59,
+  "esRecomendadaJSON": true
+}]

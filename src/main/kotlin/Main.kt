@@ -102,11 +102,6 @@ fun menuConsultas() {
                 else -> println("Opción de consulta no válida.")
             }
 
-            if (opcionConsulta in 1..5) {
-                println("(Presiona ENTER para continuar)")
-                scanner.nextLine()
-            }
-
         } catch (e: NumberFormatException) {
             println("Error: Introduce un número para la consulta.")
         }
