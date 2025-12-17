@@ -99,3 +99,68 @@ fun listarClientesCompleto() {
         println("----------------------------------")
     }
 }
+
+fun buscarFansDePelicula() {
+    print("Introduce el título de la película a investigar: ")
+    val tituloBusqueda = scanner.nextLine()
+
+    // 1. Empezamos buscando en la colección de PELÍCULAS
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION) // "peliculas"
+
+    val pipeline = listOf(
+        // PASO 1: Filtramos la película por el título que escribió el usuario
+        Document("\$match", Document("tituloPeliJSON",
+            Document("\$regex", tituloBusqueda).append("\$options", "i"))
+        ),
+
+        // PASO 2: Buscamos qué Videoclubs tienen esta peli como favorita del dueño
+        Document("\$lookup", Document()
+            .append("from", NOM_COLECCION2)     // Buscamos en "videoclubs"
+            .append("localField", "idPeliculaJSON")        // ID de la peli (1, 2, etc.)
+            .append("foreignField", "PeliFavoritaDueñoVideoclub") // Campo nuevo en el JSON
+            .append("as", "videoclubsFans")                // Guardamos la lista aquí
+        ),
+
+        // PASO 3: Buscamos qué Clientes tienen esta peli como "Más Vista"
+        Document("\$lookup", Document()
+            .append("from", NOM_COLECCION3)        // Buscamos en "clientes"
+            .append("localField", "idPeliculaJSON")        // ID de la peli
+            .append("foreignField", "idPeliculaMasVista")  // Campo en el JSON de clientes
+            .append("as", "clientesFans")                  // Guardamos la lista aquí
+        )
+    )
+
+    val resultados = col.aggregate(pipeline).toList()
+
+    if (resultados.isEmpty()) {
+        println("No se encontró ninguna película con el título '$tituloBusqueda'.")
+    } else {
+        resultados.forEach { doc ->
+            val titulo = doc.getString("tituloPeliJSON")
+            println("=== RESULTADOS PARA: $titulo ===")
+
+            // A) Imprimir Videoclubs
+            val listaClubs = doc["videoclubsFans"] as List<Document>
+            if (listaClubs.isEmpty()) {
+                println("Ningún dueño de videoclub tiene esta peli como favorita.")
+            } else {
+                println("Es la favorita del dueño de:")
+                listaClubs.forEach { club ->
+                    println("- ${club.getString("VideoClub")}")
+                }
+            }
+
+            // B) Imprimir Clientes
+            val listaClientes = doc["clientesFans"] as List<Document>
+            if (listaClientes.isEmpty()) {
+                println("Ningún cliente tiene esta peli como su más vista.")
+            } else {
+                println("Es la más vista por los clientes:")
+                listaClientes.forEach { cli ->
+                    println("- ${cli.getString("Nombre")}")
+                }
+            }
+            println("======================================")
+        }
+    }
+}

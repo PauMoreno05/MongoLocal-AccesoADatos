@@ -123,6 +123,7 @@ fun menuMasArchivos() {
         println("====CONSULTAS CON VARIOS ARCHIVOS====")
         println("1. Listar el videoclub de la pelicula mas vendida en este")
         println("2. Listar el Cliente junto a su pelicula mas vista y su videoclub favorito")
+        println("3. Buscar videoclub y cliente por su película favorita")
         println("==========================================")
         println("0. Volver al menú principal")
         print("Elige una consulta: ")
@@ -134,6 +135,7 @@ fun menuMasArchivos() {
             when (opcionConsulta) {
                 1 -> buscarVideoclubPorTituloPeli()
                 2 -> listarClientesCompleto()
+                3 -> buscarFansDePelicula()
                 0 -> println("Volviendo al menú principal...")
                 else -> println("Opción de consulta no válida.")
             }

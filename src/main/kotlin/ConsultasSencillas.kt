@@ -5,10 +5,11 @@ import com.mongodb.client.model.Filters
 import org.bson.Document
 import java.util.Scanner
 
-const val NOM_SRV = "mongodb://localhost:27017"
 
 
 val scanner = Scanner(System.`in`)
+
+// -------------- PELÍCULAS ------------------
 
 fun mostrarPeliclas() {
     val coleccion = coleccionPeliculas
@@ -145,7 +146,14 @@ fun eliminarPelicula() {
     val result = coleccion.deleteOne(Filters.eq("idPeliculaJSON", id_pelicula))
     if (result.deletedCount > 0)
         println("Pelicula eliminada correctamente.")
-    else
+    else {
         println("No se encontró ninguna pelicula con ese nombre.")
+    }
 
 }
+
+// -------------- VIDEOCLUBS ------------------
+
+
+
+// -------------- CLIENTES ------------------

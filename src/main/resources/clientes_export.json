@@ -1,19 +1,19 @@
 [
 {
   "_id": {
-    "$oid": "6942d936041f0841a57fc728"
+    "$oid": "6942e4f3c13631573f7da332"
   },
-  "ID": 1,
   "Nombre": "Juan",
-  "idPeliculaMasVista": 5,
-  "IdVideoclubFav": 2
+  "IdVideoclubFav": 2,
+  "ID": 1,
+  "idPeliculaMasVista": 5
 },
 {
   "_id": {
-    "$oid": "6942d936048f0841a07fc729"
+    "$oid": "6942e4f3c13631573f7da333"
   },
-  "ID": 2,
   "Nombre": "Victor",
-  "idPeliculaMasVista": 1,
-  "IdVideoclubFav": 1
+  "IdVideoclubFav": 1,
+  "ID": 2,
+  "idPeliculaMasVista": 1
 }]
