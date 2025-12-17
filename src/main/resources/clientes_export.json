@@ -1,0 +1,19 @@
+[
+{
+  "_id": {
+    "$oid": "6942d936041f0841a57fc728"
+  },
+  "ID": 1,
+  "Nombre": "Juan",
+  "idPeliculaMasVista": 5,
+  "IdVideoclubFav": 2
+},
+{
+  "_id": {
+    "$oid": "6942d936048f0841a07fc729"
+  },
+  "ID": 2,
+  "Nombre": "Victor",
+  "idPeliculaMasVista": 1,
+  "IdVideoclubFav": 1
+}]

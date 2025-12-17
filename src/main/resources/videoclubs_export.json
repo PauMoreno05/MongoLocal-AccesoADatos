@@ -1,12 +1,19 @@
 [
-  {
-    "ID": 1,
-    "VideoClub": "VideoMania",
-    "NumeroEmpleados": 6
+{
+  "_id": {
+    "$oid": "6942d936041f0841a07fc728"
   },
-  {
-    "ID": 2,
-    "VideoClub": "CinePlus",
-    "NumeroEmpleados": 7
-  }
-]
+  "NumeroEmpleados": 6,
+  "ID": 1,
+  "idPeliculaMasVendida": 5,
+  "VideoClub": "VideoMania"
+},
+{
+  "_id": {
+    "$oid": "6942d936041f0841a07fc729"
+  },
+  "NumeroEmpleados": 7,
+  "ID": 2,
+  "idPeliculaMasVendida": 2,
+  "VideoClub": "CinePlus"
+}]

@@ -11,7 +11,7 @@ const val NOM_SRV = "mongodb://localhost:27017"
 val scanner = Scanner(System.`in`)
 
 fun mostrarPeliclas() {
-    val coleccion = coleccionPlantas
+    val coleccion = coleccionPeliculas
 
     println()
     println("**** Listado de Películas:")
@@ -30,7 +30,7 @@ fun mostrarPeliclas() {
 }
 fun insertarPelicula() {
     //conectar con la BD
-    val coleccion = coleccionPlantas
+    val coleccion = coleccionPeliculas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
@@ -80,7 +80,7 @@ fun insertarPelicula() {
 
 fun actualizarDuracion() {
     //conectar con la BD
-    val coleccion = coleccionPlantas
+    val coleccion = coleccionPeliculas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
@@ -129,7 +129,7 @@ fun actualizarDuracion() {
 
 fun eliminarPelicula() {
     //conectar con la BD
-    val coleccion = coleccionPlantas
+    val coleccion = coleccionPeliculas
 
     var id_pelicula: Int? = null
     while (id_pelicula == null) {
