@@ -3,28 +3,22 @@ package org.example
 import org.bson.Document
 
 fun buscarVideoclubPorTituloPeli() {
-    // Pedimos el título al usuario
     print("Introduce el título de la película buscada: ")
     val tituloBusqueda = scanner.nextLine()
 
-    // 1. Trabajamos sobre la colección de VIDEOCLUBS (porque queremos listar videoclubs)
     val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION2)
 
     val pipeline = listOf(
-        // LOOKUP: Unimos Videoclubs con Películas
         Document(
             "\$lookup", Document()
-                .append("from", NOM_COLECCION)          // Tabla destino: "peliculas"
-                .append("localField", "idPeliculaMasVendida") // Campo en videoclubs
-                .append("foreignField", "idPeliculaJSON")     // Campo en peliculas
-                .append("as", "infoPeli")               // Nombre del campo resultante
+                .append("from", NOM_COLECCION)
+                .append("localField", "idPeliculaMasVendida")
+                .append("foreignField", "idPeliculaJSON")
+                .append("as", "infoPeli")
         ),
 
-        // UNWIND: Aplanamos el array para acceder a los datos de la peli directamente
         Document("\$unwind", "\$infoPeli"),
 
-        // MATCH: Filtramos para que solo salgan los videoclubs que tienen esa peli
-        // Usamos regex para que no importen mayúsculas/minúsculas
         Document("\$match", Document("infoPeli.tituloPeliJSON",
             Document("\$regex", tituloBusqueda).append("\$options", "i"))
         )
@@ -40,7 +34,6 @@ fun buscarVideoclubPorTituloPeli() {
         val nombreClub = doc.getString("VideoClub")
         val empleados = doc.getInteger("NumeroEmpleados")
 
-        // Datos de la Película (que ahora están dentro de 'infoPeli')
         val peliDoc = doc["infoPeli"] as Document
         val tituloPeli = peliDoc.getString("tituloPeliJSON")
         val director = peliDoc.getString("directorJSON")
@@ -61,23 +54,23 @@ fun listarClientesCompleto() {
     println("=== LISTADO COMPLETO DE CLIENTES ===")
 
     val pipeline = listOf(
-        // 1. PRIMER CRUCE: Traer datos de la Película
+
         Document("\$lookup", Document()
-            .append("from", NOM_COLECCION)          // Colección "peliculas"
-            .append("localField", "idPeliculaMasVista") // Campo en Clientes
-            .append("foreignField", "idPeliculaJSON")   // Campo en Películas
-            .append("as", "datosPeli")              // Resultado temporal
+            .append("from", NOM_COLECCION)
+            .append("localField", "idPeliculaMasVista")
+            .append("foreignField", "idPeliculaJSON")
+            .append("as", "datosPeli")
         ),
-        Document("\$unwind", "\$datosPeli"), // Aplanar array de peli
+        Document("\$unwind", "\$datosPeli"),
 
         // 2. SEGUNDO CRUCE: Traer datos del Videoclub
         Document("\$lookup", Document()
-            .append("from", NOM_COLECCION2) // Colección "videoclubs"
-            .append("localField", "IdVideoclubFav")   // Campo en Clientes
-            .append("foreignField", "ID")             // Campo en Videoclubs
-            .append("as", "datosClub")                // Resultado temporal
+            .append("from", NOM_COLECCION2)
+            .append("localField", "IdVideoclubFav")
+            .append("foreignField", "ID")
+            .append("as", "datosClub")
         ),
-        Document("\$unwind", "\$datosClub")  // Aplanar array de videoclub
+        Document("\$unwind", "\$datosClub")
     )
 
     col.aggregate(pipeline).forEach { doc ->
@@ -105,28 +98,25 @@ fun buscarFansDePelicula() {
     val tituloBusqueda = scanner.nextLine()
 
     // 1. Empezamos buscando en la colección de PELÍCULAS
-    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION) // "peliculas"
+    val col = cliente.getDatabase(NOM_BD).getCollection(NOM_COLECCION)
 
     val pipeline = listOf(
-        // PASO 1: Filtramos la película por el título que escribió el usuario
         Document("\$match", Document("tituloPeliJSON",
             Document("\$regex", tituloBusqueda).append("\$options", "i"))
         ),
 
-        // PASO 2: Buscamos qué Videoclubs tienen esta peli como favorita del dueño
         Document("\$lookup", Document()
-            .append("from", NOM_COLECCION2)     // Buscamos en "videoclubs"
-            .append("localField", "idPeliculaJSON")        // ID de la peli (1, 2, etc.)
-            .append("foreignField", "PeliFavoritaDueñoVideoclub") // Campo nuevo en el JSON
-            .append("as", "videoclubsFans")                // Guardamos la lista aquí
+            .append("from", NOM_COLECCION2)
+            .append("localField", "idPeliculaJSON")
+            .append("foreignField", "PeliFavoritaDueñoVideoclub")
+            .append("as", "videoclubsFans")
         ),
 
-        // PASO 3: Buscamos qué Clientes tienen esta peli como "Más Vista"
         Document("\$lookup", Document()
-            .append("from", NOM_COLECCION3)        // Buscamos en "clientes"
-            .append("localField", "idPeliculaJSON")        // ID de la peli
-            .append("foreignField", "idPeliculaMasVista")  // Campo en el JSON de clientes
-            .append("as", "clientesFans")                  // Guardamos la lista aquí
+            .append("from", NOM_COLECCION3)
+            .append("localField", "idPeliculaJSON")
+            .append("foreignField", "idPeliculaMasVista")
+            .append("as", "clientesFans")
         )
     )
 

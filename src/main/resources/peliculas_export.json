@@ -1,7 +1,7 @@
 [
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da327"
+    "$oid": "6942ee6c4f1a4666b9598529"
   },
   "tituloPeliJSON": "El Origen",
   "directorJSON": "Christopher Nolan",
@@ -19,7 +19,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da328"
+    "$oid": "6942ee6c4f1a4666b959852a"
   },
   "tituloPeliJSON": "El Padrino",
   "directorJSON": "Francis Ford Coppola",
@@ -36,7 +36,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da329"
+    "$oid": "6942ee6c4f1a4666b959852b"
   },
   "tituloPeliJSON": "Tiempos Violentos",
   "directorJSON": "Quentin Tarantino",
@@ -53,7 +53,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32a"
+    "$oid": "6942ee6c4f1a4666b959852c"
   },
   "tituloPeliJSON": "Sueños de Fuga",
   "directorJSON": "Frank Darabont",
@@ -70,7 +70,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32b"
+    "$oid": "6942ee6c4f1a4666b959852d"
   },
   "tituloPeliJSON": "Forrest Gump",
   "directorJSON": "Robert Zemeckis",
@@ -87,7 +87,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32c"
+    "$oid": "6942ee6c4f1a4666b959852e"
   },
   "tituloPeliJSON": "Frankenstein",
   "directorJSON": "Guillermo del Toro",
@@ -105,7 +105,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32d"
+    "$oid": "6942ee6c4f1a4666b959852f"
   },
   "tituloPeliJSON": "Jacobs's Ladder",
   "directorJSON": "Adrian Lyne",
@@ -123,7 +123,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32e"
+    "$oid": "6942ee6c4f1a4666b9598530"
   },
   "tituloPeliJSON": "Scream",
   "directorJSON": "Wes Craven,",
@@ -141,7 +141,7 @@
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da32f"
+    "$oid": "6942ee6c4f1a4666b9598531"
   },
   "tituloPeliJSON": "1917",
   "directorJSON": "Sam Mendes",

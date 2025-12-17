@@ -1,21 +1,31 @@
 [
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da330"
+    "$oid": "6942ee6c4f1a4666b9598532"
   },
+  "PeliFavoritaDueñoVideoclub": 5,
   "NumeroEmpleados": 6,
   "ID": 1,
   "idPeliculaMasVendida": 5,
-  "VideoClub": "VideoMania",
-  "PeliFavoritaDueñoVideoclub": 5
+  "VideoClub": "VideoMania"
 },
 {
   "_id": {
-    "$oid": "6942e4f3c13631573f7da331"
+    "$oid": "6942ee6c4f1a4666b9598533"
   },
+  "PeliFavoritaDueñoVideoclub": 7,
   "NumeroEmpleados": 7,
   "ID": 2,
   "idPeliculaMasVendida": 2,
-  "VideoClub": "CinePlus",
-  "PeliFavoritaDueñoVideoclub": 7
+  "VideoClub": "CinePlus"
+},
+{
+  "_id": {
+    "$oid": "6942ee6c4f1a4666b9598534"
+  },
+  "PeliFavoritaDueñoVideoclub": 4,
+  "NumeroEmpleados": 22,
+  "ID": 3,
+  "idPeliculaMasVendida": 8,
+  "VideoClub": "CinePlusFan"
 }]

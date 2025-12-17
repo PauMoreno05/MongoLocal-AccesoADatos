@@ -51,12 +51,9 @@ fun menu() {
         println("========================")
         println("   FILMOTECA KOTLIN     ")
         println("========================")
-        println("1. Listar películas")
-        println("2. Insertar película")
-        println("3. Actualizar duración")
-        println("4. Eliminar película")
-        println("5. Consultas avanzadas")
-        println("6. Consultas con mas de un archivo")
+        println("1. Gestión de Colecciones")
+        println("2. Consultas Avanzadas (Filtros/Agregaciones)")
+        println("3. Consultas con más de un archivo (Relaciones)")
         println("------------------------")
         println("0. Salir")
         print("Elige opción: ")
@@ -66,13 +63,10 @@ fun menu() {
             opcion = if (entrada.isBlank()) -1 else entrada.toInt()
 
             when (opcion) {
-                1 -> mostrarPeliclas()
-                2 -> insertarPelicula()
-                3 -> actualizarDuracion()
-                4 -> eliminarPelicula()
-                5 -> menuConsultas()
-                6 -> menuMasArchivos()
-                0 -> println("Adios!")
+                1 -> menuSimplesColecciones()
+                2 -> menuConsultasAvanzadas()
+                3 -> menuMasArchivos()
+                0 -> println("¡Adiós!")
                 else -> println("Opción incorrecta")
             }
         } catch (e: Exception) {
@@ -81,8 +75,84 @@ fun menu() {
     }
 }
 
+fun menuSimplesColecciones() {
+    var opcion: Int = -1
 
-fun menuConsultas() {
+    while (opcion != 0) {
+        println("\n== SELECCIONA UNA COLECCIÓN ==")
+        println("1. Películas")
+        println("2. Videoclubs")
+        println("3. Clientes")
+        println("------------------------")
+        println("0. Volver al menú principal")
+        print("Elige colección: ")
+
+        try {
+            val entrada = scanner.nextLine()
+            opcion = if (entrada.isBlank()) -1 else entrada.toInt()
+
+            when (opcion) {
+                1 -> menuOperacionesCrud("PELICULAS")
+                2 -> menuOperacionesCrud("VIDEOCLUBS")
+                3 -> menuOperacionesCrud("CLIENTES")
+                0 -> println("Volviendo...")
+                else -> println("Opción no válida.")
+            }
+        } catch (e: Exception) {
+            println("Error de formato.")
+        }
+    }
+}
+
+// --- NUEVO SUBMENÚ 2: ELEGIR OPERACIÓN (CRUD) ---
+fun menuOperacionesCrud(tipo: String) {
+    var opcion: Int = -1
+
+    while (opcion != 0) {
+        println("== GESTIÓN DE $tipo ==")
+        println("1. Listar")
+        println("2. Insertar")
+        println("3. Actualizar")
+        println("4. Eliminar")
+        println("------------------------")
+        println("0. Volver a selección de colección")
+        print("Elige operación: ")
+
+        try {
+            val entrada = scanner.nextLine()
+            opcion = if (entrada.isBlank()) -1 else entrada.toInt()
+
+            when (opcion) {
+                1 -> when (tipo) {
+                    "PELICULAS" -> mostrarPeliclas()
+                    "VIDEOCLUBS" -> mostrarVideoclubs()
+                    "CLIENTES" -> mostrarClientes()
+                }
+                2 -> when (tipo) {
+                    "PELICULAS" -> insertarPelicula()
+                    "VIDEOCLUBS" -> insertarVideoclub()
+                    "CLIENTES" -> insertarCliente()
+                }
+                3 -> when (tipo) {
+                    "PELICULAS" -> actualizarDuracion()
+                    "VIDEOCLUBS" -> actualizarEmpleadosVideoclub()
+                    "CLIENTES" -> actualizarVideoclubFavCliente()
+                }
+                4 -> when (tipo) {
+                    "PELICULAS" -> eliminarPelicula()
+                    "VIDEOCLUBS" -> eliminarVideoclub()
+                    "CLIENTES" -> eliminarCliente()
+                }
+                0 -> println("Volviendo...")
+                else -> println("Opción no válida.")
+            }
+        } catch (e: Exception) {
+            println("Error: Introduce un número válido.")
+        }
+    }
+}
+
+fun menuConsultasAvanzadas() {
     var opcionConsulta: Int = -1
 
     while (opcionConsulta != 0) {
