@@ -4,16 +4,6 @@ Proyecto de gestión de bases de datos NoSQL utilizando **Kotlin** y **MongoDB**
 
 ---
 
-## Tabla de Contenidos
-1. [Descripción General](#descripción-general)
-2. [Estructura del Proyecto](#estructura-del-proyecto)
-3. [Funcionalidades y Menús](#funcionalidades-y-menús)
-4. [Modelo de Datos (JSON)](#modelo-de-datos-json)
-5. [Requisitos y Ejecución](#requisitos-y-ejecución)
-6. [Tecnologías](#tecnologías)
-
----
-
 ## Descripción General
 
 Esta aplicación de consola simula un sistema de gestión para una cadena de videoclubs. Los datos son persistentes a través de archivos JSON que se importan al iniciar y se exportan al cerrar la aplicación. El núcleo del proyecto demuestra el uso del driver de MongoDB para Java/Kotlin, implementando tuberías de agregación (`pipelines`) para cruzar datos entre colecciones sin usar SQL.
