@@ -24,7 +24,6 @@ fun exportarBD(coleccion: MongoCollection<Document>, rutaJSON: String) {
         out.println("]")
         cursor.close()
     }
-
     println("Exportación de ${coleccion.namespace.collectionName} completada")
 }
 

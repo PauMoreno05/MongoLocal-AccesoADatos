@@ -218,6 +218,7 @@ fun menuMasArchivos() {
 
 fun main() {
     conectarBD()
+
     importarBD("src/main/resources/peliculas_export.json", coleccionPeliculas)
     importarBD("src/main/resources/videoclubs_export.json", coleccionVideoclubs)
     importarBD("src/main/resources/clientes_export.json", coleccionClientes)

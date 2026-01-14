@@ -85,6 +85,7 @@ fun insertarPelicula() {
         .append("tituloPeliJSON", titulo_peli)
         .append("directorJSON", director_peli)
         .append("duracionHorasJSON", duracion_peli)
+        .append("generosJSON", listaGeneros)
         .append("esRecomendadaJSON", recomendada_peli)
 
 

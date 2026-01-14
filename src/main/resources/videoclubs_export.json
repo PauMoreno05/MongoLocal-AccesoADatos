@@ -1,7 +1,7 @@
 [
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598532"
+    "$oid": "6967a2e1d1dd6165ee7eaaa0"
   },
   "PeliFavoritaDueñoVideoclub": 5,
   "NumeroEmpleados": 6,
@@ -11,7 +11,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598533"
+    "$oid": "6967a2e1d1dd6165ee7eaaa1"
   },
   "PeliFavoritaDueñoVideoclub": 7,
   "NumeroEmpleados": 7,
@@ -21,7 +21,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598534"
+    "$oid": "6967a2e1d1dd6165ee7eaaa2"
   },
   "PeliFavoritaDueñoVideoclub": 4,
   "NumeroEmpleados": 22,

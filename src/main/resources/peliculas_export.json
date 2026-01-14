@@ -1,7 +1,7 @@
 [
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598529"
+    "$oid": "6967a2e1d1dd6165ee7eaa97"
   },
   "tituloPeliJSON": "El Origen",
   "directorJSON": "Christopher Nolan",
@@ -19,7 +19,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852a"
+    "$oid": "6967a2e1d1dd6165ee7eaa98"
   },
   "tituloPeliJSON": "El Padrino",
   "directorJSON": "Francis Ford Coppola",
@@ -36,7 +36,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852b"
+    "$oid": "6967a2e1d1dd6165ee7eaa99"
   },
   "tituloPeliJSON": "Tiempos Violentos",
   "directorJSON": "Quentin Tarantino",
@@ -53,7 +53,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852c"
+    "$oid": "6967a2e1d1dd6165ee7eaa9a"
   },
   "tituloPeliJSON": "Sueños de Fuga",
   "directorJSON": "Frank Darabont",
@@ -70,7 +70,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852d"
+    "$oid": "6967a2e1d1dd6165ee7eaa9b"
   },
   "tituloPeliJSON": "Forrest Gump",
   "directorJSON": "Robert Zemeckis",
@@ -87,7 +87,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852e"
+    "$oid": "6967a2e1d1dd6165ee7eaa9c"
   },
   "tituloPeliJSON": "Frankenstein",
   "directorJSON": "Guillermo del Toro",
@@ -105,7 +105,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b959852f"
+    "$oid": "6967a2e1d1dd6165ee7eaa9d"
   },
   "tituloPeliJSON": "Jacobs's Ladder",
   "directorJSON": "Adrian Lyne",
@@ -123,7 +123,7 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598530"
+    "$oid": "6967a2e1d1dd6165ee7eaa9e"
   },
   "tituloPeliJSON": "Scream",
   "directorJSON": "Wes Craven,",
@@ -141,11 +141,37 @@
 },
 {
   "_id": {
-    "$oid": "6942ee6c4f1a4666b9598531"
+    "$oid": "6967a2e1d1dd6165ee7eaa9f"
   },
   "tituloPeliJSON": "1917",
   "directorJSON": "Sam Mendes",
   "idPeliculaJSON": 9,
   "duracionHorasJSON": 1.59,
+  "esRecomendadaJSON": true
+},
+{
+  "_id": {
+    "$oid": "6967a309d1dd6165ee7eaaa6"
+  },
+  "idPeliculaJSON": 10,
+  "tituloPeliJSON": "LOLO",
+  "directorJSON": "LOLITA",
+  "duracionHorasJSON": 6.0,
+  "generosJSON": [],
+  "esRecomendadaJSON": false
+},
+{
+  "_id": {
+    "$oid": "6967a32ed1dd6165ee7eaaa7"
+  },
+  "idPeliculaJSON": 11,
+  "tituloPeliJSON": "lola",
+  "directorJSON": "lalita",
+  "duracionHorasJSON": 6.0,
+  "generosJSON": [
+    "Terror",
+    "Drama",
+    "Accion"
+  ],
   "esRecomendadaJSON": true
 }]

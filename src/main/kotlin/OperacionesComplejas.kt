@@ -82,16 +82,12 @@ fun estadisticasDeCantidad() {
 
     // 2. Contar con FILTRO (Películas Recomendadas)
     // Equivalente a: db.peliculas.countDocuments({esRecomendadaJSON: true})
-    val totalRecomendadas = coleccionPeliculas.countDocuments(
-        Filters.eq("esRecomendadaJSON", true)
-    )
+    val totalRecomendadas = coleccionPeliculas.countDocuments(Filters.eq("esRecomendadaJSON", true))
     println("-> $totalRecomendadas son recomendadas.")
 
     // 3. Contar Videoclubs con muchos empleados (Mayor o igual a 5)
     // Equivalente a: db.videoclubs.countDocuments({NumeroEmpleados: {$gte: 5}})
-    val videoclubsGrandes = coleccionVideoclubs.countDocuments(
-        Filters.gte("NumeroEmpleados", 5)
-    )
+    val videoclubsGrandes = coleccionVideoclubs.countDocuments(Filters.gte("NumeroEmpleados", 5))
     println("-> Hay $videoclubsGrandes videoclubs con 5 o más empleados.")
 }
 
